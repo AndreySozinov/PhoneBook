@@ -1,19 +1,20 @@
-import UI
-import add_delete as ad
-import importbook
-import exportbook
+import model
 
-print('ADD - добавить запись\nDELETE - удалить запись\nEXPORT - экспортировать справочник\n\
+
+while(True):
+    print('ADD - добавить запись\nDELETE - удалить запись\nEXPORT - экспортировать справочник\n\
 IMPORT - импортировать справочник')
-startword = input().lower
-
-if startword == "add":
+    startword = input().lower()
 
 
-if startword == "delete":
+    if startword == "add":
+        model.Adding()
 
+    if startword == "delete":
+        model.Del()
 
-if startword == "export":
+    if startword == "export":
+        model.export()
 
-
-if startword == "import":
+    if startword == "import":
+        model.import.pb()

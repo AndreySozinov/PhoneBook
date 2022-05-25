@@ -11,8 +11,8 @@ def deleting():
     return index
 
 def symbol():
-    input('Введите "y" если разделитель ; ')
-    if input.lower == "y":
+    sym = input('Введите "y" если разделитель ; ')
+    if sym.lower() == "y":
         sign = ";"
     else: sign = "\n"
     return sign

@@ -10,11 +10,13 @@ IMPORT - импортировать справочник')
     if startword == "add":
         model.Adding()
 
-    if startword == "delete":
+    elif startword == "delete":
         model.Del()
 
-    if startword == "export":
+    elif startword == "export":
         model.export()
 
-    if startword == "import":
-        model.import.pb()
+    elif startword == "import":
+        model.import_pb()
+
+    else: print("Повнимательнее, пожалуйста.")

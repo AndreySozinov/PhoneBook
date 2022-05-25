@@ -7,7 +7,7 @@ def Adding():
     phonebook.append(UI.entry())
     print(phonebook)
 
-def Del()
+def Del():
     global phonebook
     phonebook.pop(UI.deleting())
     print(phonebook)
@@ -15,15 +15,25 @@ def Del()
 def export():
     global phonebook
     divider = UI.symbol()
-    with open('My_phonebook.csv', 'w') as file:
+    with open('My_phonebook.csv', 'w', encoding="utf-16") as file:
         for entry in phonebook:
-            for element in entry:
-                file.write(f'{element}{divider}\n')
+            for i in range(len(entry)-1):
+                file.write(f'{entry[i]}{divider}')
+            file.write(f'{entry[-1]}')
+            if divider == '\n': file.write('\n')
+            file.write('\n')
 
 def import_pb():
     global phonebook
+    templist = []
     file = open('My_phonebook.csv', 'r')
     for line in file:
-        phonebook.append(line)
+        if ';' in line:
+            phonebook.append(line.split(';'))
+        elif line != '\n':
+            templist.append(line)
+        else: 
+            phonebook.append(templist)
+            templist = []
     file.close
-    
+    print(phonebook)

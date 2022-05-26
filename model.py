@@ -20,13 +20,14 @@ def export():
             for i in range(len(entry)-1):
                 file.write(f'{entry[i]}{divider}')
             file.write(f'{entry[-1]}')
-            if divider == '\n': file.write('\n')
-            file.write('\n')
+            if divider == '\n': file.write(f'\n')
+            file.write(f'\n')
 
 def import_pb():
     global phonebook
     templist = []
-    file = open('My_phonebook.csv', 'r')
+    phonebook = []
+    file = open('My_phonebook.csv', 'r', encoding="utf-16")
     for line in file:
         if ';' in line:
             phonebook.append(line.split(';'))

@@ -27,14 +27,17 @@ def import_pb():
     global phonebook
     templist = []
     phonebook = []
+    temp = ""
     file = open('My_phonebook.csv', 'r', encoding="utf-16")
     for line in file:
         if ';' in line:
             phonebook.append(line.split(';'))
         elif line != '\n':
-            templist.append(line)
+            temp += (line.replace('\n',';'))
         else: 
+            templist = temp[:-1].split(';')
             phonebook.append(templist)
+            temp = ""
             templist = []
     file.close
     print(phonebook)
